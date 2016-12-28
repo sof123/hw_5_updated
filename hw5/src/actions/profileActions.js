@@ -17,7 +17,6 @@ const updateHeadlineAction = (headline) => (dispatch) =>{
 const logoutAction = () => (dispatch) => resource('PUT', 'logout').then(r =>
   (dispatch({
     type: 'logoutToDo',
-    //id: ownProps.id,
     payload: "OK"
 })))
 
@@ -25,12 +24,9 @@ const logoutAction = () => (dispatch) => resource('PUT', 'logout').then(r =>
 
 const loginAction = (username, password) => (dispatch) => {
   const loginObject = {username: username, password: password}
-
-  console.log("in login action")
   return  resource('POST', 'login', loginObject).then(r =>
   (dispatch({
     type: 'loginToDo',
-    //id: ownProps.id,
     payload: r
   })))
 }
@@ -43,11 +39,9 @@ const  registerObj = {
     zipcode: user.zip.value,
     password: user.password.value
   }
-  console.log("Register Object is " + registerObj)
   return  resource('POST', 'register', registerObj).then(r =>
   (dispatch({
     type: 'registerToDo',
-    //id: ownProps.id,
     payload: r
   })))
 }
@@ -55,7 +49,6 @@ const  registerObj = {
 export const bindFetchFeedToDispatch = (dispatch) => () => {
   return resource('GET', 'articles')
     .then(json =>{
-      console.log("json is", json)
       dispatch({
         type: FETCH_FEED_SUCCESS,
         payload: json
@@ -118,7 +111,6 @@ export const bindFollowToDispatch = (dispatch) => (username) => {
 
 export const updateZipAction = (newZip) => (dispatch) =>{
 
-  console.log("new zip is ", newZip)
   return resource('PUT', 'zipcode', {
       zipcode: newZip.value
   }).then(r =>
@@ -130,7 +122,6 @@ export const updateZipAction = (newZip) => (dispatch) =>{
 }
 
 export const updateEmailAction = (newEmail) => (dispatch) =>{
-  console.log("in update email action")
   return resource('PUT', 'email', {
       email: newEmail.value
   }).then(r =>
@@ -143,7 +134,6 @@ export const updateEmailAction = (newEmail) => (dispatch) =>{
 
 export const bindUnfollowToDispatch = (dispatch) => (username) => {
   resource('DELETE', `following/${username}`).then(json => {
-    console.log('unfollow json is', json)
     dispatch({
       type: UNFOLLOW_SUCCESS,
       payload: json

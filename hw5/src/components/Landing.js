@@ -10,7 +10,6 @@ export const LandingItem = ({login, register}) =>{
   let AccountName
   let password
   const loginClicked = () =>{
-    console.log("in loginClicked")
 
     if (AccountName && AccountName.value && password && password.value){
       login(AccountName.value, password.value)
@@ -18,7 +17,6 @@ export const LandingItem = ({login, register}) =>{
 
   }
   const registerClicked = () =>{
-    console.log("in loginClicked")
 
     if (AccountName && AccountName.value && password && password.value){
       login(AccountName.value, password.value)

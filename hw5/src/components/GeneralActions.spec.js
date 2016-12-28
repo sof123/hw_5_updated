@@ -46,7 +46,6 @@ describe('Validate Actions', () => {
   	})
     done()
   	profileActions.getZipAction(action => {
-      //console.log("action is ", action)
       expect(action.type).to.eql(GET_ZIP_SUCCESS)
       done()
     })()
@@ -59,7 +58,6 @@ describe('Validate Actions', () => {
   			headers: {'Content-Type': 'application/json'}
   	})
   	profileActions.bindFollowToDispatch(action => {
-      //console.log("action is ", action)
       expect(action.type).to.eql(CLEAR_FOLLOW_ERROR)
       done()
     })(username)
@@ -78,7 +76,6 @@ describe('Validate Actions', () => {
 
     profileActions.loginAction(username, password)(
       (action => {
-      //  console.log("action is ", action)
         expect(1).to.eql(1)
         done()
     }))

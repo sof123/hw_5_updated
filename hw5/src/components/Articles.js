@@ -13,9 +13,7 @@ class Articles extends Component {
   }
 
   render() {
-    console.log("this.props is ", this.props)
     const articles = this.props.articles
-    console.log("articles are ", articles)
 
     return (
       <div>

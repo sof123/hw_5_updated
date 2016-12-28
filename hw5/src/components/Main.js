@@ -15,9 +15,6 @@ export const MainItem = ({headline, logout, goToProfile, updateHeadline, getArti
       <div>
 
         <div className="container" style={{position: 'relative', padding: '0 0 0 55px', backgroundColor: 'pink'}}>
-          <input name="post" required />
-          <input type="button" defaultValue="Post!" onclick id="postButton" />
-          <input type="button" defaultValue="Cancel Post" onclick="clearPost()" id="cancelPostButton" />
             <input type="file" accept="image/*" onChange={(e) => handleImageChange(e)}/>
           <br /><br />
             <input id="headline" name="headline" ref={(a)=>headlineValue=a} required />
@@ -65,7 +62,6 @@ export const MainItem = ({headline, logout, goToProfile, updateHeadline, getArti
 
   export default connect( (state) =>
                           {
-                            console.log(state)
                             return {
                               headline: state.headline,
                               following: state.following

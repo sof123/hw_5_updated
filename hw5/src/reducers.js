@@ -24,7 +24,6 @@ export const Reducer = (state =  {
 }, action) => {
 	switch(action.type) {
 		case 'loginToDo':
-		console.log("in login todo ")
 			return { ...state, nextId: state.nextId + 1, location: "Main.js",
 					username: action.payload.username
 			}
@@ -48,8 +47,6 @@ export const Reducer = (state =  {
 						{id:state.nextId, text: action.text, done: false}]
 			}
 		case 'updateHeadlineToDo':
-			console.log("in update headline to do")
-			console.log("payload", action.payload)
 			return { ...state, nextId: state.nextId + 1, headline: action.payload.headline, location: "Main.js", posts: [...state.posts, action.text],
 					todoItems: [ ...state.todoItems,
 						{id:state.nextId, done: false,}]
@@ -70,7 +67,6 @@ export const Reducer = (state =  {
 						{id:state.nextId, text: action.text, done: false}]
 			}
 		case FETCH_FEED_SUCCESS:
-			console.log("ARTICLES IN FETCH FEED SUCCCESS ARE ", action.payload)
       if (!action.payload)
       {
         action.payload = {articles: {}}
@@ -81,7 +77,6 @@ export const Reducer = (state =  {
 				success: "success"
 			}
 		case SET_ARTICLES_SUCCESS:
-      console.log("action is",action)
 			return {
 				...state,
         articles: action.articles,
@@ -143,12 +138,11 @@ export const Reducer = (state =  {
 
 function removedArray(arr, element)
 {
-  console.log("arr before is " + arr)
   var index = arr.indexOf(element);
   if (index > -1) {
     arr.splice(index, 1);
   }
-  console.log("arr after is " + arr)
+
   return arr;
 }
 

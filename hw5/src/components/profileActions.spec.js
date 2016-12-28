@@ -51,7 +51,6 @@ it('should fetch the users profile information (email and zip)', (done) => {
 	})
 
 	profileActions.getZipAction(action => {
-    //console.log("action is ", action)
     expect(action).to.eql({
       type: GET_ZIP_SUCCESS,
       payload: {username,zipcode}
@@ -66,7 +65,6 @@ it('should fetch the users profile information (email and zip)', (done) => {
 		})
 
     profileActions.getEmailAction(action => {
-      //console.log("action is ", action)
       expect(action).to.eql({
         type: GET_EMAIL_SUCCESS,
         payload: {username,email}
@@ -92,7 +90,6 @@ describe('Validate Authentication Actions', () => {
 
       profileActions.loginAction(username, password)(
       	(action => {
-          //console.log("action is ", action)
       	  expect(action).to.eql({
       	  	type: 'loginToDo',
             payload: { username, password}
@@ -115,7 +112,6 @@ describe('Validate Authentication Actions', () => {
 
       profileActions.loginAction(username, password)(
       	(action => {
-          //console.log("action is ", action)
       	  expect(action).to.eql({
       	  	type: 'loginToDo',
             payload: { username, password}
@@ -137,7 +133,6 @@ describe('Validate Authentication Actions', () => {
 
       profileActions.logoutAction()(
       	(action => {
-          //console.log("action is ", action)
       	  expect(action).to.eql({
       	  	type: 'logoutToDo',
             payload: "OK"
